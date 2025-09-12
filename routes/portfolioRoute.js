@@ -8,7 +8,7 @@ const portfolioLimiter = rateLimit({
   message: {message:"Too many portfolio updates. Try again later."}
 });
 
-router.post("/add", authMiddleware.authenticate, authMiddleware.authorizeAdmin, portfolioLimiter, portfolioController.addFund);
+router.post("/add", authMiddleware.authenticate, portfolioLimiter, portfolioController.addFund);
 router.get("/get", authMiddleware.authenticate,portfolioController.getPortfolioValue);
 router.get("/history", authMiddleware.authenticate,portfolioController.getPortfolioHistory);
 router.get("/list", authMiddleware.authenticate,portfolioController.getPortfolioList);
