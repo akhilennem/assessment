@@ -6,6 +6,7 @@ const portfolioSchema =new mongoose.Schema({
      ref: "User", required: true },
   schemeCode: { type: Number, 
     required: true },
+  schemeName:{type:String},
   units: { type: Number,
      required: true, 
      min: 0 },

@@ -9,6 +9,8 @@ exports.addFund = async (req, res) => {
     const userId = req.user.id; 
 
     const fund = await Fund.findOne({ schemeCode });
+    
+    let schemeName=fund.schemeName;
     if (!fund) {
       return res.status(400).json({ success: false, message: "Invalid schemeCode" });
     }
@@ -19,6 +21,7 @@ exports.addFund = async (req, res) => {
     const portfolio = await Portfolio.create({
       userId,
       schemeCode,
+      schemeName,
       units,
       purchaseDate: new Date(),
       createdAt: new Date(),

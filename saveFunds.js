@@ -9,7 +9,7 @@ async function fetchWithRetry(url, retries = 5, delay = 1000) {
       return res.data;
     } catch (err) {
       if (i === retries - 1) throw err;
-      console.warn(`Fetch failed (attempt ${i + 1}), retrying in ${delay}ms...`);
+      console.log(`Fetch failed (attempt ${i + 1}), retrying in ${delay}ms...`);
       await new Promise(r => setTimeout(r, delay));
       delay *= 2;
     }

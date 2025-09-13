@@ -13,7 +13,7 @@ exports.updateNav = async () => {
       const { data } = await axios.get(`https://api.mfapi.in/mf/${schemeCode}/latest`);
 
       if (!data || !data.data || !data.data[0]) {
-        console.warn(`No NAV found for schemeCode: ${schemeCode}`);
+        console.log(`No NAV found for schemeCode: ${schemeCode}`);
         continue;
       }
 
@@ -37,7 +37,7 @@ exports.updateNav = async () => {
       console.log(`Updated NAV for ${schemeCode}: ${nav} on ${date}`);
     }
 
-    console.log("NAV update completed successfully");
+    console.log("NAV update completed");
   } catch (err) {
     console.error("NAV update failed:", err.message);
   }
